@@ -20,9 +20,12 @@
     justify-content: space-between;
 }
 
+.search,.search-result{
+    width: 361px;
+}
+
 .search{
     position: relative;
-    width: 361px;
     height: var(--search-height);
     border-radius: var(--search-border-radius);
     background-color: rgba(22, 24, 35, 0.06);
@@ -58,6 +61,12 @@
     }
     
 }
+.search-title{
+    font-size: 1.4rem;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 600;
+    padding:5px 12px;
+}
 
 .clear,
 .spinner{
@@ -84,3 +93,5 @@
         background-color: rgba(22, 24, 35, 0.06);
     }
 }
+
+

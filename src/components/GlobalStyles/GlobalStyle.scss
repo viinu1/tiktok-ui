@@ -1,16 +1,17 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 
 // Css co ban
 :root{
     --primary:#fe2c55;
-    --text-color:#333;
+    --text-color:#161823;
     --black:#000;
     --white:#fff;
     //default layout
     --default-layout-header-height:60px;
     --default-layout-width:1150px;  
+    --default-layout-horizontal-spacer:24px;
 
 }
 html{
@@ -22,7 +23,7 @@ html{
     margin: 0;
 }
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -36,4 +37,24 @@ button, input,[tabindex]{
 a[href]{
     color: var(--text-color);
     text-decoration: none;
+}
+
+body {
+    .tippy-box{
+        background-color: rgba(84, 84, 84, 0.92);
+        font-size: 1.6rem;
+        font-weight: 800;
+        border-radius: 8px;
+        line-height: 2.2rem;
+    }
+
+    .tippy-box[data-placement^=bottom]>.tippy-arrow:before{
+        color: rgba(84, 84, 84, 0.92);
+        top: -8 px;
+    }
+
+    .tippy-content{
+        padding: 8px 9px;
+    }
+
 }

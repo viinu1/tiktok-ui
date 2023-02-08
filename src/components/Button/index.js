@@ -19,6 +19,7 @@ function Button({
     className,
     leftIcon,
     rightIcon,
+    buttonIcon,
     onClick,
     ...passProps
 }) {
@@ -52,6 +53,7 @@ function Button({
         disabled,
         small,
         large,
+        buttonIcon,
     })
     return (
         <Comp className={classes} {...props}>

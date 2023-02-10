@@ -16,6 +16,7 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/image';
 import Search from '../Search';
+import routesConfig from '~/config/routes'
 
 
 
@@ -94,7 +95,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div>
-                    <Link to='/'><img src={images.logo} alt="Tiktok"/></Link>
+                    <Link className={cx('logo-link')} to={routesConfig.root}><img src={images.logo} alt="Tiktok"/></Link>
                 </div>
 
                 {/* Component Search */}
@@ -132,9 +133,10 @@ function Header() {
                         {currentUser ?(
                             <Image
                                 className={cx('user-avata')}
-                                src="https://p116-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/4807ff80effbfefd179fcde414eb2efd~c5_100x100.jpeg?x-expires=1676041200&x-signature=v4NR6NtvxYNAOfs5rHYjXxlY0Qg%3D"
+                                src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg"
                                 alt='avata'
                                 // fallBack = {images.noImage}
+                                
                             />
                         ):(
                             <button className={cx('more-btn')}>

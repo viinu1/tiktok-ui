@@ -23,7 +23,7 @@ export const InboxIcon = ({className,width ='3.2rem',height='3.2rem'})=>(
         width={width}
         data-e2e=""
         height={height}
-        viewBox="0 0 32 32"
+        viewBox="0 0 28 28"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >

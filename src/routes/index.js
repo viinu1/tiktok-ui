@@ -19,7 +19,7 @@ const publicRoutes =[
         component:Following
     },
     {
-        path:'/#:nickname',
+        path:'/:nickname',
         component:Profile
     },
     {

@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faLanguage, faQuestionCircle, faKeyboard, faCoins, faCamera, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -93,7 +94,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div>
-                    <img src={images.logo} alt="Tiktok"/>
+                    <Link to='/'><img src={images.logo} alt="Tiktok"/></Link>
                 </div>
 
                 {/* Component Search */}

@@ -136,7 +136,7 @@ function Header() {
                                 src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg"
                                 alt='avata'
                                 // fallBack = {images.noImage}
-                                
+
                             />
                         ):(
                             <button className={cx('more-btn')}>

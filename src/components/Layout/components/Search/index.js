@@ -66,49 +66,54 @@ function Search() {
 
     
     return (
-        <HeadlessTippy
-                    interactive
-                    placement='bottom'
-                    visible={showResult && searchResult.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                                <PopperWrapper>
-                                    <h3 className={cx('search-title')}>
-                                        Account
-                                    </h3>
-                                    {searchResult.map((result)=>(
-                                        <AccountItem key={result.id} data={result}/>                              
-                                    ))}
-                                </PopperWrapper>
-                            </div>
-                      )}
-                      onClickOutside={handleHideResult}
-                >
-                    <div className={cx('search')}>
-                        <input
-                            ref={inputRef}
-                            value={searchValue}
-                            placeholder='Searh Account and Video'
-                            spellCheck={false}
-                            onChange={handleChange}
-                            onFocus={()=>setShowResult(true)}
-                        />
-
-                        {!!searchValue && !loading && (
-                            <button className={cx('clear')} onClick={handleClick}>
-                                <FontAwesomeIcon icon={faCircleXmark}/>
-                            </button>
-                        )}
-                        {
-                            loading && <FontAwesomeIcon  className={cx('spinner')} icon={faSpinner}/>
-                        }
-                        
-                        
-                        <button className={cx('search-btn')} onMouseDown={e => e.preventDefault()}>
-                            <SearchIcon/>
+        //Using a wrapper <div> or <span> tag around the reference element solves
+        //this by creating a new parentNode context
+        <div>
+            <HeadlessTippy
+                interactive
+                placement='bottom'
+                visible={showResult && searchResult.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                            <PopperWrapper>
+                                <h3 className={cx('search-title')}>
+                                    Account
+                                </h3>
+                                {searchResult.map((result)=>(
+                                    <AccountItem key={result.id} data={result}/>                              
+                                ))}
+                            </PopperWrapper>
+                        </div>
+                    )}
+                    onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        placeholder='Searh Account and Video'
+                        spellCheck={false}
+                        onChange={handleChange}
+                        onFocus={()=>setShowResult(true)}
+                    />
+    
+                    {!!searchValue && !loading && (
+                        <button className={cx('clear')} onClick={handleClick}>
+                            <FontAwesomeIcon icon={faCircleXmark}/>
                         </button>
-                    </div>
-        </HeadlessTippy>
+                    )}
+                    {
+                        loading && <FontAwesomeIcon  className={cx('spinner')} icon={faSpinner}/>
+                    }
+                    
+                    
+                    <button className={cx('search-btn')} onMouseDown={e => e.preventDefault()}>
+                        <SearchIcon/>
+                    </button>
+                </div>
+            </HeadlessTippy>
+        </div>
+        
     );
 }
 

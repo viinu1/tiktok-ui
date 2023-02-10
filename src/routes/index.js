@@ -1,5 +1,7 @@
+//Header Only
 import { HeaderOnly } from "~/components/Layout"
 
+// Pages
 import Home from "~/pages/Home"
 import Following from "~/pages/Following"
 import Profile from "~/pages/Profile"
@@ -17,7 +19,7 @@ const publicRoutes =[
         component:Following
     },
     {
-        path:'/profile',
+        path:'/#:nickname',
         component:Profile
     },
     {

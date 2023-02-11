@@ -17,7 +17,7 @@ function Menu({children,items=[],onChange = defaultFn, hideOnClick = false}) {
 
     const [history,setHistory] = useState([{data:items}])
     const current = history[history.length - 1]
-
+    console.log(history[history.length - 1]);
     const renderItem = ()=>{
         return current.data.map((item,index)=>{
             const isParent = !!item.children;
@@ -37,6 +37,30 @@ function Menu({children,items=[],onChange = defaultFn, hideOnClick = false}) {
             )
         })
     }
+
+    const handleBack = ()=>{
+        setHistory((prev) => prev.slice(0,prev.length - 1))
+    };
+
+    const renderResult = (attrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && (
+                    <Header
+                        title={current.title}
+                        onBack={handleBack}
+                    />
+                )}
+                <div className={cx('menu-body')}>{renderItem()}</div>
+            </PopperWrapper>
+        </div>
+    )
+
+    //Reset to first to page
+    const handleResetMenu = () => {
+        setHistory(prev => prev.slice(0,1))
+    }
+
     return (
         <Tippy
             
@@ -44,18 +68,9 @@ function Menu({children,items=[],onChange = defaultFn, hideOnClick = false}) {
             placement='bottom-end'
             delay={[0,500]}
             offset={[12,8]}
-            onHidden={()=> setHistory(prev => prev.slice(0,1))}
+            onHide={handleResetMenu}
             hideOnClick={hideOnClick}
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper className={cx('menu-popper')}>
-                            {history.length > 1 && <Header title={current.title} onBack={()=>{
-                                setHistory((prev) => prev.slice(0,prev.length - 1))
-                            }}/>}
-                            <div className={cx('menu-body')}>{renderItem()}</div>
-                        </PopperWrapper>
-                    </div>
-                )}
+            render={renderResult}
             
         >
             {children}

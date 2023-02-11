@@ -18,35 +18,33 @@ function Search() {
 
     const [searchValue,setSearchValue] = useState('')
     const [searchResult,setSearchResult] = useState([])
-    const [showResult,setShowResult] = useState(true)
+
+    const [showResult,setShowResult] = useState(false)
     const [loading,setLoading] = useState(false)
 
-    const debounce = useDebounce(searchValue,600)
+    const debounceValue = useDebounce(searchValue,600)
 
     const inputRef = useRef();
 
     useEffect(()=>{
-        if (!searchValue.trim()) {
+        if (!debounceValue.trim()) {
             setSearchResult([])
             return;
         }
-        setLoading(true)
-
+        
         const fetchApi = async () => {
             setLoading(true)
 
-            const result = await searchService.search(debounce)
-            setSearchResult(result)
+            const result = await searchService.search(debounceValue)
 
+            setSearchResult(result)
             setLoading(false)
         }
         fetchApi()
-        
-        
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[debounce])
+    },[debounceValue])
 
-    const handleClick =() =>{
+    const handleClear =() =>{
         setSearchValue('')
         inputRef.current.focus();
         setShowResult(false)
@@ -72,7 +70,7 @@ function Search() {
             <HeadlessTippy
                 interactive
                 placement='bottom'
-                visible={showResult && searchResult.length > 0}
+                visible={showResult && searchResult.length > 0 }
                 render={(attrs) => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
@@ -83,7 +81,7 @@ function Search() {
                                     <AccountItem key={result.id} data={result}/>                              
                                 ))}
                             </PopperWrapper>
-                        </div>
+                    </div>
                     )}
                     onClickOutside={handleHideResult}
             >
@@ -98,7 +96,7 @@ function Search() {
                     />
     
                     {!!searchValue && !loading && (
-                        <button className={cx('clear')} onClick={handleClick}>
+                        <button className={cx('clear')} onClick={handleClear}>
                             <FontAwesomeIcon icon={faCircleXmark}/>
                         </button>
                     )}

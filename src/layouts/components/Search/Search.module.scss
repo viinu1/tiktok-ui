@@ -1,5 +1,7 @@
-.search,.search-result{
+.search,
+.search-result{
     width: 361px;
+    
 }
 
 .search{
@@ -17,7 +19,7 @@
         color:var(--black);
         background-color: transparent;
         flex: 1;
-        padding: 12px 0;
+        padding-right: 36px;
         caret-color: var(--primary);
         font-family: var(--font-family);
     }

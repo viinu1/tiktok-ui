@@ -26,7 +26,7 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon ={faLanguage}/>,
         title:'English',
         children:{
-            title:'Language 1',
+            title:'Language',
             data:[
                 {
                     code:'en',
@@ -40,6 +40,7 @@ const MENU_ITEMS = [
                     code:'china',
                     title:"Trung Quốc",
                 },
+                
             ],
         },
     },
@@ -84,7 +85,7 @@ const userMenu = [
 
 ]
 function Header() {
-    const currentUser =  true
+    const currentUser =  false
     //handle logic
     const handleOnChange = (menuItem)=>{
         
@@ -97,7 +98,6 @@ function Header() {
                 <div>
                     <Link className={cx('logo-link')} to={config.routes.root}><img src={images.logo} alt="Tiktok"/></Link>
                 </div>
-
                 {/* Component Search */}
                 <Search/>
 
@@ -125,7 +125,7 @@ function Header() {
                     ) : (
                             <>
                                 <Button text>Upload</Button>
-                                <Button primary>Login</Button>
+                                <Button primary >Login</Button>
                                 
                             </>
                     )}

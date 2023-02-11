@@ -1,3 +1,7 @@
+import PropTypes from 'prop-types';
+
+
+
 import './GlobalStyle.scss'
 function GlobalStyle({children}){
     return (
@@ -5,4 +9,7 @@ function GlobalStyle({children}){
     )
 }
 
+GlobalStyle.prototype = {
+    children:PropTypes.node.isRequired
+}
 export default GlobalStyle

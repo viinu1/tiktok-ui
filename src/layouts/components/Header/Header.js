@@ -13,10 +13,10 @@ import images from '~/assets/images';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon } from '~/components/Icons';
-import Image from '~/components/image';
+import { InboxIcon, MessageIcon } from '~/components/Icons/Icons';
+import Image from '~/components/Image';
 import Search from '../Search';
-import routesConfig from '~/config/routes'
+import config from '~/config'
 
 
 
@@ -26,7 +26,7 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon ={faLanguage}/>,
         title:'English',
         children:{
-            title:'Language',
+            title:'Language 1',
             data:[
                 {
                     code:'en',
@@ -58,12 +58,12 @@ const userMenu = [
     {
         icon:<FontAwesomeIcon icon={faUser}/>,
         title:'View profile',
-        to:'/vanvi'
+        to:'/#vanvi'
     },
     {
         icon:<FontAwesomeIcon icon={faCoins}/>,
         title:'Get Coins',
-        to:'/coins'
+        // to:'/coins'
     },
     {
         icon:<FontAwesomeIcon icon={faCamera}/>,
@@ -72,13 +72,13 @@ const userMenu = [
     {
         icon:<FontAwesomeIcon icon={faGear}/>,
         title:'Setting',
-        to:'/setting'
+        // to:'/setting'
     },
     ...MENU_ITEMS,
     {
         icon:<FontAwesomeIcon icon={faSignOut}/>,
         title:'Logout',
-        to:'/logout',
+        // to:'/logout',
         separate:true,
     }
 
@@ -87,7 +87,7 @@ function Header() {
     const currentUser =  true
     //handle logic
     const handleOnChange = (menuItem)=>{
-        console.log(menuItem);
+        
     }
 
     
@@ -95,7 +95,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div>
-                    <Link className={cx('logo-link')} to={routesConfig.root}><img src={images.logo} alt="Tiktok"/></Link>
+                    <Link className={cx('logo-link')} to={config.routes.root}><img src={images.logo} alt="Tiktok"/></Link>
                 </div>
 
                 {/* Component Search */}

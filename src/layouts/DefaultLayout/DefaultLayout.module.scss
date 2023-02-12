@@ -1,19 +1,18 @@
-.wrapper{
+.wrapper {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
 }
 
-.container{
+.container {
     margin-top: var(--default-layout-header-height);
     width: var(--default-layout-width);
+    max-width: 100%;
     display: flex;
     padding: 0 var(--default-layout-horizontal-spacer);
 }
 
-.content{
+.content {
     flex: 1;
 }
-

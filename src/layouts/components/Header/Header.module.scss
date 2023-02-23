@@ -1,26 +1,25 @@
-.wrapper{
-    --search-border-radius:92px;
-    --search-height:46px;
-    --search-top-spacer:9px;
-    --search-button-width:52px;
-
+.wrapper {
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-spacer: 9px;
+    --search-button-width: 52px;
 
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     width: 100%;
-    height: var(--default-layout-header-height,60px);
+    height: var(--default-layout-header-height, 60px);
     box-shadow: 0 1px 1px rgb(0 0 0 / 12%);
     background-color: var(--white);
 }
 
-.inner{
+.inner {
     height: 100%;
     width: var(--default-layout-width);
     display: flex;
@@ -30,26 +29,26 @@
 }
 
 // Logo
-.logo-link{
+.logo-link {
     display: flex;
 }
 
 // Action
-.actions{
+.actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;  
+    justify-content: space-between;
 }
 
-.more-btn{
+.more-btn {
     margin-left: 28px;
     font-size: 2rem;
     background-color: transparent;
-    padding:4px 8px;
+    padding: 4px 8px;
     cursor: pointer;
 }
 
-.action-btn{
+.action-btn {
     background-color: transparent;
     font-size: 2.2rem;
     padding: 4px 12px;
@@ -57,14 +56,14 @@
     cursor: pointer;
 }
 
-.action-before{
+.action-before {
     position: relative;
-    
-    &::before{
+
+    &::before {
         position: absolute;
         content: attr(attrs);
         font-size: 1.2rem;
-        top:0;
+        top: 0;
         right: 2px;
         width: 2rem;
         height: 1.6rem;
@@ -80,7 +79,7 @@
     }
 }
 
-.user-avata{
+.user-avata {
     object-fit: cover;
     width: 3.2rem;
     height: 3.2rem;
@@ -88,4 +87,3 @@
     margin-left: 12px;
     cursor: pointer;
 }
-

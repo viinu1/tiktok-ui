@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,12 +14,13 @@ import {
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 
+// import HeadlessTippy from '@tippyjs/react/headless';
+
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
@@ -64,7 +66,7 @@ const userMenu = [
     {
         icon: <FontAwesomeIcon icon={faUser} />,
         title: 'View profile',
-        to: '/#vanvi',
+        to: '/@vanvi',
     },
     {
         icon: <FontAwesomeIcon icon={faCoins} />,
@@ -89,10 +91,7 @@ const userMenu = [
     },
 ];
 function Header() {
-    const currentUser = true;
-    //handle logic
-    const handleOnChange = (menuItem) => {};
-
+    const currentUser = false;
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -130,10 +129,12 @@ function Header() {
                     ) : (
                         <>
                             <Button text>Upload</Button>
-                            <Button primary>Login</Button>
+                            <Button primary to="/login">
+                                Login
+                            </Button>
                         </>
                     )}
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleOnChange}>
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS}>
                         {currentUser ? (
                             <Image
                                 className={cx('user-avata')}
@@ -153,4 +154,7 @@ function Header() {
     );
 }
 
+Header.propTypes = {
+    parentCallback: PropTypes.func,
+};
 export default Header;

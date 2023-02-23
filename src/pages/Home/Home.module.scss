@@ -1,0 +1,96 @@
+.wrapper {
+    margin-top: 20px;
+}
+
+.post {
+    margin-bottom: 24px;
+}
+.header {
+    display: flex;
+    // align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding-bottom: 12px;
+}
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.body {
+    width: 410px;
+    margin-left: 8px;
+}
+.nickname {
+    display: inline-block;
+    margin-right: 6px;
+}
+.check {
+    color: #20d5ec;
+}
+
+.name {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-left: 6px;
+}
+.content {
+    font-size: 1.6rem;
+    color: #181823;
+    font-weight: 400;
+    padding: 4px 0;
+}
+.link-music {
+    cursor: pointer;
+    font-size: 1.6rem;
+    a {
+        margin-left: 8px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// lấy video
+.list-video {
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+}
+.item-video {
+    width: auto;
+    height: 300;
+    max-width: 300px;
+    video {
+        border-radius: 12px;
+        border: 1px solid #ccc;
+    }
+}
+.interact {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 5%;
+    right: 50%;
+    p {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}
+.icon {
+    width: 22px;
+    height: 22px;
+    padding: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+.icon.active {
+    color: var(--primary);
+}

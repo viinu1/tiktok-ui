@@ -1,19 +1,19 @@
-.menu-list{
+.menu-list {
     width: 224px;
-    .menu-item{
+    .menu-item {
         margin-left: 0;
         height: 42px;
     }
 }
 
-.menu-popper{
+.menu-popper {
     padding-bottom: 8px;
 }
-.menu-body{
+.menu-body {
     overflow-y: auto;
 }
 
-.menu-item{
+.menu-item {
     width: 100%;
     justify-content: flex-start;
     border-radius: 0;
@@ -21,38 +21,40 @@
     padding: 10px 16px;
     line-height: 1.8rem;
     font-weight: 600;
-    
-    &.separate{
-        border-top: 1px solid rgba(22, 24, 35, .12);
+
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+    &.borderb {
+        border-bottom: 1px solid rgba(22, 24, 35, 0.12);
     }
 
-    &:hover{
+    &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
-
 }
 
-.header{
+.header {
     position: relative;
     flex-shrink: 0;
     height: 50px;
     margin-top: -8px;
 }
 
-.back-btn{
+.back-btn {
     width: 50px;
     height: 100%;
     cursor: pointer;
     background-color: transparent;
-    &:hover{
+    &:hover {
         background-color: #ccc;
     }
 }
 
-.header-title{
+.header-title {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     color: #000;
 }

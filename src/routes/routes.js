@@ -9,6 +9,7 @@ import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import Live from '~/pages/Live';
+import Login from '~/components/Login';
 //public Routes
 const publicRoutes = [
     {
@@ -37,11 +38,11 @@ const publicRoutes = [
         path: config.routes.live,
         component: Live,
     },
-    // {
-    //     path: config.routes.notpage,
-    //     component: NotPage,
-    //     layout: null,
-    // },
+    {
+        path: config.routes.login,
+        component: Login,
+        layout: null,
+    },
 ];
 
 const privateRoutes = [];

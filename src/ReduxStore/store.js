@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import AuthenSlice from './AuthenSlice';
+import videoReducer from './videosSlice';
+import authenReducer from './authenSlice';
 
 const store = configureStore({
     reducer: {
-        user: AuthenSlice,
+        video: videoReducer,
+        authen: authenReducer,
     },
 });
 

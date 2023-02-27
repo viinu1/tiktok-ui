@@ -15,7 +15,6 @@ import styles from './SideBar.module.scss';
 import Menu, { MenuItem } from './Menu';
 import { SuggestedAccounts } from '~/components/SuggestedAccounts';
 import * as userService from '~/services/userService';
-import * as followingServive from '~/services/followingService';
 
 const cx = classNames.bind(styles);
 const INIT_PAGE = 1;
@@ -25,21 +24,14 @@ function SideBar() {
     const [page, setPage] = useState(INIT_PAGE);
 
     const [suggestedUser, setSuggestedUser] = useState([]);
-    const [followingUser, setFollowingUser] = useState([]);
 
     useEffect(() => {
         const fetchApi = async () => {
             const result = await userService.getSuggested({ page, perPage: PER_PAGE });
             setSuggestedUser((prevUser) => [...prevUser, ...result]);
-
-            const result2 = await followingServive.getFollowing();
-            setFollowingUser(result2);
         };
 
         fetchApi();
-        return () => {
-            clearInterval(fetchApi);
-        };
     }, [page]);
 
     const handleViewChange = () => {
@@ -59,7 +51,7 @@ function SideBar() {
                 <MenuItem title="LiVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveIconActive />} />
             </Menu>
             <SuggestedAccounts lable="Suggested Account" data={suggestedUser} onViewChange={handleViewChange} />
-            <SuggestedAccounts lable="Following Account" data={followingUser} />
+            <SuggestedAccounts lable="Following Account" />
         </aside>
     );
 }

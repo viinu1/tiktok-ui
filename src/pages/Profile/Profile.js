@@ -31,12 +31,10 @@ const option = [
     },
 ];
 function Profile() {
-    
-
     const [account, setAccount] = useState([]);
     useEffect(() => {
         const fetchApi = async () => {
-            const result = await userService.getUser();
+            const result = await userService.getUser('@phamvanvi');
             setAccount(result);
         };
         fetchApi();

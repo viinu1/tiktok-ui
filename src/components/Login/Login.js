@@ -3,27 +3,27 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import { loginUser } from '~/ReduxStore/AuthenSlice';
+import { Link, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button';
+import { login } from '~/ReduxStore/authenSlice';
 
 import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 
 function Login() {
+    const isAuthenticated = useSelector((state) => state.authen.isAuthenticated);
     const dispatch = useDispatch();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = (e) => {
+    const submitForm = (e) => {
         e.preventDefault();
-        dispatch(loginUser(email, password));
+        dispatch(login(email, password));
     };
-
-    return (
+    return isAuthenticated ? (
+        <Navigate to="/" />
+    ) : (
         <div className={cx('wrapper')}>
             <form className={cx('login')}>
                 <Link to="/">
@@ -56,7 +56,7 @@ function Login() {
                     <input className={cx('check-box')} type="checkbox" />
                     <p>Remeber me</p>
                 </div>
-                <Button onClick={handleLogin} className={cx('btn-login')} primary large>
+                <Button onClick={submitForm} className={cx('btn-login')} primary large>
                     Login
                 </Button>
                 <div className={cx('social')}>
@@ -70,7 +70,7 @@ function Login() {
                     </div>
                 </div>
                 <div className={cx('footer-login')}>
-                    Bạn chưa có tài khoản? đăng ký{' '}
+                    Bạn chưa có tài khoản? đăng ký
                     <Button text small to="/login">
                         Tại Đây
                     </Button>

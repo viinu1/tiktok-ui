@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // import HeadlessTippy from '@tippyjs/react/headless';
 
@@ -91,7 +92,11 @@ const userMenu = [
     },
 ];
 function Header() {
-    const currentUser = false;
+    // const isAuthenticated = true;
+
+    // const isAuthenticated = useSelector((state) => state.authen.isAuthenticated);
+    // const user = useSelector((state) => state.auth.user);
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -107,7 +112,7 @@ function Header() {
                 {/* cần sữ lý login */}
 
                 <div className={cx('actions')}>
-                    {currentUser ? (
+                    {isAuthenticated ? (
                         <>
                             <Tippy delay={[0, 200]} content="Upload Video" placement="bottom">
                                 <button className={cx('action-btn')}>
@@ -134,8 +139,8 @@ function Header() {
                             </Button>
                         </>
                     )}
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS}>
-                        {currentUser ? (
+                    <Menu items={isAuthenticated ? userMenu : MENU_ITEMS}>
+                        {isAuthenticated ? (
                             <Image
                                 className={cx('user-avata')}
                                 src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg"

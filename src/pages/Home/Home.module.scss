@@ -1,5 +1,7 @@
 .wrapper {
     margin-top: 20px;
+    padding: 0 40px;
+    margin-left: 360px;
 }
 
 .post {
@@ -7,7 +9,6 @@
 }
 .header {
     display: flex;
-    // align-items: center;
     font-size: 1.8rem;
     font-weight: 700;
     padding-bottom: 12px;
@@ -62,20 +63,24 @@
     margin-bottom: 24px;
 }
 .item-video {
-    width: auto;
-    height: 300;
-    max-width: 300px;
+    width: 280px;
+    height: 500px;
+    display: flex;
+    position: relative;
     video {
         border-radius: 12px;
-        border: 1px solid #ccc;
+        object-fit: cover;
+    }
+    &:hover > .control {
+        display: block;
     }
 }
 .interact {
     position: absolute;
     display: flex;
     flex-direction: column;
-    bottom: 5%;
-    right: 50%;
+    bottom: 0;
+    right: -25%;
     p {
         font-size: 1.4rem;
         text-align: center;
@@ -93,4 +98,63 @@
 }
 .icon.active {
     color: var(--primary);
+}
+
+// icon play - volume Video
+.control {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    display: none;
+}
+.icon-pause,
+.icon-play {
+    position: absolute;
+    left: 10%;
+    font-size: 2rem;
+    color: white;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.volume {
+    position: absolute;
+    right: 10%;
+    bottom: 20px;
+}
+
+.volume-range {
+    position: absolute;
+    transform: rotate(-90deg);
+    width: 100px;
+    bottom: 70px;
+    right: -38px;
+    display: none;
+    cursor: pointer;
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: -10px;
+    }
+}
+
+.icon-volume-high,
+.icon-volume-mute {
+    position: absolute;
+    right: 10%;
+    font-size: 2rem;
+    color: white;
+    bottom: 60%;
+    cursor: pointer;
+}
+// .icon-volume-mute {
+//     display: none;
+// }
+.volume:hover > .volume-range {
+    display: block;
 }

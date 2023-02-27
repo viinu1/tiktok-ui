@@ -1,10 +1,4 @@
-import Login from '~/components/Login';
-
 function Live() {
-    return (
-        <h2>
-            <Login />
-        </h2>
-    );
+    return <h2>live here</h2>;
 }
 export default Live;

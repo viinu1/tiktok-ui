@@ -1,0 +1,54 @@
+.wrapper {
+    margin-top: 24px;
+    padding-left: 360px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+}
+
+.list-account {
+    border-radius: 10px;
+    margin-bottom: 24px;
+    text-align: center;
+    position: relative;
+}
+
+.item-video {
+    border-radius: 12px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    video {
+        border-radius: 8px;
+        object-fit: cover;
+    }
+}
+.info {
+    position: absolute;
+    z-index: 11;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.avatar {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.name {
+    color: white;
+    font-size: 1.8rem;
+}
+.nickname {
+    color: white;
+    font-size: 1.4rem;
+    display: inline-block;
+    margin-right: 4px;
+}
+.check {
+    color: aqua;
+}
+.btn {
+    padding: 6px 48px;
+}

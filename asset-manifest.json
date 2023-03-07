@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.8478f49e.css",
+    "main.css": "./static/css/main.bc59559b.css",
     "main.js": "./static/js/main.5cb92f8b.js",
     "static/js/787.fe00223f.chunk.js": "./static/js/787.fe00223f.chunk.js",
     "static/media/tiktok1.mp4": "./static/media/tiktok1.8f9f250757cfedd04a42.mp4",
@@ -9,12 +9,12 @@
     "static/media/Proxima-Nova-Regular.woff2": "./static/media/Proxima-Nova-Regular.6c83037ae28747e6d774.woff2",
     "static/media/logo.svg": "./static/media/logo.0c7b5d4cdcdad74f594aea1ccca44527.svg",
     "index.html": "./index.html",
-    "main.8478f49e.css.map": "./static/css/main.8478f49e.css.map",
+    "main.bc59559b.css.map": "./static/css/main.bc59559b.css.map",
     "main.5cb92f8b.js.map": "./static/js/main.5cb92f8b.js.map",
     "787.fe00223f.chunk.js.map": "./static/js/787.fe00223f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8478f49e.css",
+    "static/css/main.bc59559b.css",
     "static/js/main.5cb92f8b.js"
   ]
 }

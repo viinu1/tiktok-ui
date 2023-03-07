@@ -15,6 +15,7 @@ import styles from './SideBar.module.scss';
 import Menu, { MenuItem } from './Menu';
 import { SuggestedAccounts } from '~/components/SuggestedAccounts';
 import * as userService from '~/services/userService';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 const INIT_PAGE = 1;
@@ -37,9 +38,10 @@ function SideBar() {
     const handleViewChange = () => {
         setPage(page + 1);
     };
-
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
     return (
         <aside className={cx('wrapper')}>
+            {/* Menu */}
             <Menu>
                 <MenuItem title="For you" to={config.routes.home} icon={<HomeIcon />} activeIcon={<HomeIconACtive />} />
                 <MenuItem
@@ -50,8 +52,25 @@ function SideBar() {
                 />
                 <MenuItem title="LiVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveIconActive />} />
             </Menu>
-            <SuggestedAccounts lable="Suggested Account" data={suggestedUser} onViewChange={handleViewChange} />
-            <SuggestedAccounts lable="Following Account" />
+
+            {isAuthenticated ? (
+                <>
+                    <SuggestedAccounts lable="Suggested Account" data={suggestedUser} onViewChange={handleViewChange} />
+                    <SuggestedAccounts lable="Following Account" onViewChange={handleViewChange} />
+                </>
+            ) : (
+                <div>
+                    <div className={cx('sidebar-login')}>
+                        <div className={cx('heading-lable')}>
+                            Log in to follow creators, like videos, and view comments.
+                        </div>
+                        <Button className={cx('sidebar-login-btn')} outline>
+                            Login
+                        </Button>
+                    </div>
+                    <SuggestedAccounts lable="Suggested Account" data={suggestedUser} />
+                </div>
+            )}
         </aside>
     );
 }

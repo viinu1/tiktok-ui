@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import styles from './SuggestedAccounts.module.scss';
 import AccountItem from './AccountItem';
 import { Link } from 'react-router-dom';
+import Button from '../Button';
 
 const cx = classNames.bind(styles);
 

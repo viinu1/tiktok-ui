@@ -41,7 +41,7 @@ const publicRoutes = [
     {
         path: config.routes.login,
         component: Login,
-        layout: null,
+        layout: HeaderOnly,
     },
 ];
 

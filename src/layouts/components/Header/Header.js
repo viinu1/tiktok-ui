@@ -13,7 +13,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 // import HeadlessTippy from '@tippyjs/react/headless';
 
@@ -28,6 +27,7 @@ import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
 import config from '~/config';
+import Login from '~/components/Login';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -67,7 +67,7 @@ const userMenu = [
     {
         icon: <FontAwesomeIcon icon={faUser} />,
         title: 'View profile',
-        to: '/@vanvi',
+        to: '/me',
     },
     {
         icon: <FontAwesomeIcon icon={faCoins} />,
@@ -97,6 +97,7 @@ function Header() {
     // const isAuthenticated = useSelector((state) => state.authen.isAuthenticated);
     // const user = useSelector((state) => state.auth.user);
     const isAuthenticated = localStorage.getItem('isAuthenticated');
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>

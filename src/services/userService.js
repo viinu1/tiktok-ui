@@ -14,9 +14,9 @@ export const getSuggested = async ({ page, perPage }) => {
     }
 };
 
-export const getUser = async (nickname) => {
+export const getUser = async () => {
     try {
-        const res = await httpRequest.get(`users/@${nickname}`);
+        const res = await httpRequest.get('auth/me', {});
         return res.data;
     } catch (error) {
         console.log(error);
